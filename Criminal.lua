@@ -6,7 +6,7 @@ local button = CreateFrame('Button', addon, UIParent, 'SecureActionButtonTemplat
 local macro = '/cast %s\n/use %s %s'
 local spell = GetSpellInfo(1804)
 
-local LOCKED_SKILL = string.gsub(ERR_USE_LOCKED_WITH_SPELL_KNOWN_SI, '%%s %%d', string.format('%s %(.*%)', GetSpellInfo(1810)))
+local LOCKED_SKILL = ERR_USE_LOCKED_WITH_SPELL_KNOWN_SI:gsub('%%s', (GetSpellInfo(1810))):gsub('%%d', '%(.*%)')
 
 local function ScanTooltip(text)
 	for index = 1, GameTooltip:NumLines() do
